@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <title>Équipe – Nom du laboratoire</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header>
+      <h1>Nom du laboratoire</h1>
+      <p>Laboratoire de recherche en ... – Université ...</p>
+      <nav>
+        <a href="index.html">Accueil</a>
+        <a href="equipe.html">Équipe</a>
+        <a href="projets.html">Projets</a>
+        <a href="publications.html">Publications</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <h2>Équipe</h2>
+        <h3>Responsable du laboratoire</h3>
+        <ul>
+          <li>Pr. Nom Prénom – Professeur, Université … – email@univ.ma</li>
+        </ul>
+
+        <h3>Enseignants-chercheurs</h3>
+        <ul>
+          <li>Nom Prénom – Maître de conférences – email@univ.ma</li>
+          <li>Nom Prénom – Professeur assistant – email@univ.ma</li>
+        </ul>
+
+        <h3>Doctorants</h3>
+        <ul>
+          <li>Nom Prénom – Thèse sur « … »</li>
+          <li>Nom Prénom – Thèse sur « … »</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; <span id="year"></span> Nom du laboratoire – Université ...</p>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
