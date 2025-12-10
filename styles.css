@@ -1,7 +1,6 @@
 /* =========================================================
    STYLES GLOBAUX LM2CE
    Palette et thème basés sur le logo du laboratoire
-   À utiliser avec index.html, equipe.html, projet.html, etc.
 ========================================================= */
 
 /* ----------------- PALETTE DE COULEURS ----------------- */
@@ -43,41 +42,44 @@ body {
 }
 
 /* =========================================================
-   HEADER + NAVIGATION + LOGO
+   HEADER + LOGO + NAVIGATION
 ========================================================= */
 
 header {
   position: sticky;
   top: 0;
   z-index: 50;
+
   background: #ffffff;
-  padding: 10px 24px;
+  padding: 8px 28px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  height: 75px;
   box-shadow: 0 4px 14px rgba(15, 23, 42, 0.15);
   border-bottom: 1px solid rgba(148, 163, 184, 0.35);
 }
 
 header img.logo {
-  height: 60px;      /* adapte si tu veux plus grand/petit */
+  height: 52px;   /* <-- TAILLE PARFAITE */
   width: auto;
+  object-fit: contain;
   display: block;
 }
 
 nav {
   display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+  gap: 16px;
 }
 
 nav a {
-  position: relative;
   color: var(--lm2ce-darkblue);
   text-decoration: none;
   font-weight: 500;
   font-size: 0.95rem;
-  padding: 6px 10px;
+  padding: 6px 12px;
   border-radius: 999px;
   transition: color 0.3s ease, background 0.3s ease, transform 0.2s;
 }
@@ -85,24 +87,26 @@ nav a {
 nav a:hover {
   background: rgba(79, 127, 247, 0.10);
   color: var(--lm2ce-blue);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
 /* =========================================================
-   SECTION HERO (ACCUEIL)
+   HERO (ACCUEIL) — DÉGRADÉ ROUGE / BLEU DYNAMIQUE
 ========================================================= */
 
 .hero {
   padding: 90px 20px 70px;
   text-align: center;
   color: var(--white);
+
   background: var(--hero-gradient);
   background-size: 320% 320%;
   animation: heroGradient 10s ease infinite;
+
   box-shadow: 0 12px 30px rgba(15, 23, 42, 0.4);
 }
 
-/* Animation du dégradé (dynamique) */
+/* Animation du dégradé */
 @keyframes heroGradient {
   0%   { background-position: 0%   50%; }
   50%  { background-position: 100% 50%; }
@@ -115,7 +119,7 @@ nav a:hover {
   font-weight: 800;
   letter-spacing: 1px;
 
-  /* Titre très clair */
+  /* Texte très clair */
   background: linear-gradient(90deg, #FFFFFF, #EAF3FF);
   -webkit-background-clip: text;
   color: transparent;
@@ -131,7 +135,7 @@ nav a:hover {
   text-shadow: 0px 1px 8px rgba(0, 0, 0, 0.35);
 }
 
-/* Tags sous le hero (mots-clés d'expertise) */
+/* Tags du hero */
 .hero .hero-tags {
   margin-top: 18px;
   display: flex;
@@ -150,7 +154,7 @@ nav a:hover {
 }
 
 /* =========================================================
-   CONTENEUR PRINCIPAL & SECTIONS
+   CONTENU PRINCIPAL & SECTIONS
 ========================================================= */
 
 .main-container {
@@ -164,8 +168,10 @@ section {
   border-radius: 14px;
   padding: 26px 24px;
   margin-bottom: 24px;
+
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
   border: 1px solid rgba(148, 163, 184, 0.25);
+
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -198,7 +204,7 @@ p {
 }
 
 /* =========================================================
-   GRILLES & "CARDS" (Domaines, membres, projets...)
+   GRILLES & CARDS
 ========================================================= */
 
 .grid-3 {
@@ -219,6 +225,7 @@ p {
   padding: 18px 16px;
   border: 1px solid rgba(148, 163, 184, 0.3);
   box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+
   transition: transform 0.23s ease, box-shadow 0.23s ease;
 }
 
@@ -252,12 +259,13 @@ p {
   margin-top: 12px;
   padding: 10px 18px;
   border-radius: 999px;
-  border: none;
   cursor: pointer;
   font-size: 0.95rem;
   font-weight: 600;
+
   color: var(--white);
   background-image: var(--accent-gradient);
+
   box-shadow: 0 8px 20px rgba(148, 27, 37, 0.35);
   transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
   text-decoration: none;
@@ -270,7 +278,7 @@ p {
 }
 
 /* =========================================================
-   TABLEAUX (utile pour Liste de publications, projets...)
+   TABLEAUX
 ========================================================= */
 
 table {
@@ -313,7 +321,7 @@ footer span.lm2ce {
 }
 
 /* =========================================================
-   RESPONSIVE (mobile / tablette)
+   RESPONSIVE MOBILE / TABLETTE
 ========================================================= */
 
 @media (max-width: 900px) {
@@ -326,11 +334,14 @@ footer span.lm2ce {
   header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    height: auto;
+    padding-bottom: 12px;
   }
 
   nav {
     justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
   }
 
   .grid-3,
@@ -339,7 +350,7 @@ footer span.lm2ce {
   }
 
   .hero h1 {
-    font-size: 2.2rem;
+    font-size: 2.3rem;
   }
 
   .hero {
