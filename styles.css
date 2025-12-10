@@ -1,46 +1,27 @@
-/* =========================================
-   HERO SECTION – Dégradé clair et dynamique
-========================================= */
-.hero {
-  padding: 90px 20px 70px;
-  text-align: center;
-  color: #FFFFFF;
-  background: linear-gradient(135deg, #4F7FF7, #7B4DFF, #E53935, #1E3A8A);
-  background-size: 300% 300%;
-  animation: heroGradient 10s ease infinite;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
-  border-bottom-left-radius: 22px;
-  border-bottom-right-radius: 22px;
-}
-
-/* Animation plus rapide et visible */
-@keyframes heroGradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
 .hero h1 {
   font-size: 3rem;
   margin-bottom: 12px;
   font-weight: 800;
   letter-spacing: 1px;
-  background: linear-gradient(90deg, #FFFFFF, #DDECFF);
+
+  /* Couleur blanche très claire + léger bleu */
+  background: linear-gradient(90deg, #FFFFFF, #EAF3FF);
   -webkit-background-clip: text;
   color: transparent;
-  text-shadow: 0px 2px 10px rgba(255,255,255,0.6);
+
+  /* Effet lumière autour du titre */
+  text-shadow: 0px 2px 12px rgba(255, 255, 255, 0.9);
 }
 
 .hero p {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   max-width: 800px;
   margin: 0 auto;
-  opacity: 0.95;
-}
+  opacity: 1;
 
-/* Tags améliorés */
-.hero .tag {
-  background: rgba(255,255,255,0.22);
-  border: 1px solid rgba(255,255,255,0.4);
-  color: #FFFFFF;
+  /* Blanc doux très lisible */
+  color: #F5F9FF;
+
+  /* Petit glow pour lisibilité */
+  text-shadow: 0px 1px 8px rgba(255, 255, 255, 0.7);
 }
