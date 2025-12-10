@@ -1,99 +1,143 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LM2CE – Laboratoire de Modélisation, Statistique et Calcul Économique</title>
-  <link
-  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-  rel="stylesheet"
-  integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-  crossorigin="anonymous"
-/>
-<!-- TON CSS PERSONNEL PAR-DESSUS -->
-<link rel="stylesheet" href="styles.css">
-  
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+        content="Laboratoire de Modélisation Mathématique, Statistique, Data Science et Calcul Économique de la Faculté d’Économie et de Gestion de Settat.">
   <link rel="stylesheet" href="styles.css">
 </head>
-
-  <script
-  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-  crossorigin="anonymous"
-></script>
-  
 <body>
-  <!-- NAVBAR Bootstrap -->
-  <nav class="navbar navbar-expand-lg bg-white">
-    <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="index.html">
-        <img src="LM2CE-LOGO.png" alt="LM2CE">
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo-block">
+        <img src="LM2CE-LOGO.png" alt="Logo LM2CE" class="logo">
+        <div class="logo-text">
+          <span class="lab-name">LM2CE</span>
+          <span class="lab-sub">Laboratoire de Modélisation, Statistique et Calcul Économique</span>
+        </div>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="mainNav">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
-          <li class="nav-item"><a class="nav-link" href="apropos.html">À propos</a></li>
-          <li class="nav-item"><a class="nav-link" href="axes.html">Axes</a></li>
-          <li class="nav-item"><a class="nav-link" href="equipe.html">Équipe</a></li>
-          <li class="nav-item"><a class="nav-link" href="projet.html">Projets</a></li>
-          <li class="nav-item"><a class="nav-link" href="publications.html">Publications</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        </ul>
-      </div>
+      <nav>
+        <a href="#accueil">Accueil</a>
+        <a href="#axes">Axes</a>
+        <a href="#equipe">Équipe</a>
+        <a href="#projets">Projets</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
-  </nav>
+  </header>
 
   <!-- HERO -->
-  <section class="hero-lm2ce">
-    <div class="container">
-      <div class="row align-items-center gy-4">
-        <div class="col-lg-7">
-          <h1 class="hero-title">
-            Laboratoire LM2CE
-          </h1>
-          <p class="hero-subtitle mt-3">
-            Laboratoire de Modélisation Mathématique, Statistique, Data Science et Calcul Économique
-            de la Faculté d’Économie et de Gestion de Settat.
-          </p>
-          <div class="hero-tags mt-3">
-            <span class="hero-tag me-2 mb-2">Statistique & économétrie</span>
-            <span class="hero-tag me-2 mb-2">Analyse de données</span>
-            <span class="hero-tag me-2 mb-2">Data science en économie & gestion</span>
-            <span class="hero-tag me-2 mb-2">Modélisation & aide à la décision</span>
-          </div>
-          <a href="apropos.html" class="btn-lm2ce mt-4">Découvrir le laboratoire</a>
-        </div>
+  <section id="accueil" class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        Laboratoire LM2CE
+      </h1>
+      <p class="hero-subtitle">
+        Laboratoire de Modélisation Mathématique, Statistique, Data Science et Calcul Économique
+        de la Faculté d’Économie et de Gestion de Settat.
+      </p>
+
+      <div class="hero-tags">
+        <span class="hero-tag">Statistique & économétrie</span>
+        <span class="hero-tag">Analyse de données</span>
+        <span class="hero-tag">Data science en économie & gestion</span>
+        <span class="hero-tag">Modélisation & aide à la décision</span>
       </div>
+
+      <a href="#apropos" class="btn-primary">Découvrir le laboratoire</a>
     </div>
   </section>
 
-  <!-- Exemple de section sous le hero -->
-  <main class="container my-4">
-    <div class="section-block">
-      <h2 class="section-title">Axes de recherche</h2>
-      <div class="row g-3">
-        <div class="col-md-6 col-lg-3">
-          <div class="kadans-card h-100">
-            <div class="kadans-card-title">Statistique & économétrie</div>
-            <div class="kadans-card-tag">Méthodes quantitatives</div>
-            <p class="mb-0 mt-2">
-              Modélisation statistique, inférence, économétrie appliquée aux marchés, aux politiques publiques et à la gestion.
-            </p>
-          </div>
+  <main class="main-container">
+
+    <!-- À PROPOS -->
+    <section id="apropos" class="section-card">
+      <h2>À propos du LM2CE</h2>
+      <p>
+        Le Laboratoire de Modélisation Mathématique et de Calculs Économiques (LM2CE) de la Faculté d’Économie
+        et de Gestion de Settat est un espace de recherche pluridisciplinaire dédié à l’étude, l’analyse statistique
+        et la modélisation des phénomènes économiques, financiers et sociaux. Sous la direction d’Abdallah Abarda,
+        le laboratoire mobilise des outils de mathématiques appliquées, de statistique, d’économétrie, de data science
+        et de simulation numérique afin d’éclairer les décisions publiques et privées.
+      </p>
+    </section>
+
+    <!-- AXES -->
+    <section id="axes" class="section-card">
+      <h2>Axes de recherche</h2>
+      <div class="grid-3">
+        <div class="axis-card">
+          <h3>Statistique & économétrie</h3>
+          <p>
+            Modélisation statistique, inférence, économétrie appliquée aux marchés, aux politiques publiques,
+            à la finance et à la gestion des risques.
+          </p>
         </div>
-        <!-- autres cartes axes... -->
+        <div class="axis-card">
+          <h3>Analyse de données & data science</h3>
+          <p>
+            Méthodes de data mining, apprentissage automatique et intelligence artificielle pour
+            l’analyse de données économiques, financières et sociales.
+          </p>
+        </div>
+        <div class="axis-card">
+          <h3>Modélisation & calcul économique</h3>
+          <p>
+            Modèles macroéconomiques et microéconomiques, optimisation, aide à la décision et simulation
+            numérique pour l’évaluation de scénarios et de politiques.
+          </p>
+        </div>
       </div>
-    </div>
+    </section>
+
+    <!-- ÉQUIPE (placeholder simple) -->
+    <section id="equipe" class="section-card">
+      <h2>Équipe</h2>
+      <p class="muted">
+        Cette rubrique présentera prochainement les enseignants-chercheurs, doctorants et partenaires du laboratoire LM2CE.
+      </p>
+    </section>
+
+    <!-- PROJETS -->
+    <section id="projets" class="section-card">
+      <h2>Projets</h2>
+      <p class="muted">
+        Projets de recherche en cours et collaborations nationales et internationales en économie quantitative,
+        data science et analyse de données pour la décision.
+      </p>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications" class="section-card">
+      <h2>Publications</h2>
+      <p class="muted">
+        Liste des publications scientifiques du laboratoire (articles, ouvrages, chapitres, communications…)
+        en cours d’intégration.
+      </p>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section-card">
+      <h2>Contact</h2>
+      <p>
+        Faculté d’Économie et de Gestion de Settat<br>
+        Laboratoire LM2CE
+      </p>
+      <p class="muted">
+        Une adresse e-mail et un formulaire de contact pourront être ajoutés ici.
+      </p>
+    </section>
+
   </main>
 
-  <footer class="site-footer">
-    <div class="container text-center">
-      © 2025 <span>Laboratoire LM2CE</span> – Faculté d’Économie et de Gestion de Settat
-    </div>
+  <footer>
+    © 2025 <span class="footer-lab">Laboratoire LM2CE</span> – Faculté d’Économie et de Gestion de Settat
   </footer>
+
 </body>
 </html>
