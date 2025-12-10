@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <title>Nom du laboratoire</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Laboratoire de recherche en ... à ...">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header>
+      <h1>Nom du laboratoire</h1>
+      <p>Laboratoire de recherche en ... – Université ...</p>
+      <nav>
+        <a href="index.html">Accueil</a>
+        <a href="equipe.html">Équipe</a>
+        <a href="projets.html">Projets</a>
+        <a href="publications.html">Publications</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <h2>Bienvenue</h2>
+        <p>Texte de présentation du laboratoire, 3–5 lignes maximum.</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; <span id="year"></span> Nom du laboratoire – Université ...</p>
+    </footer>
+
+    <script>
+      // Afficher automatiquement l'année courante
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
