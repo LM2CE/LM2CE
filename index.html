@@ -6,6 +6,70 @@
     <title> LM2CE</title>
     <link rel="stylesheet" href="style.css" />
   </head>
+
+  <script>
+(function(){
+  const viewport = document.getElementById('newsViewport');
+  const track = document.getElementById('newsTrack');
+  if(!viewport || !track) return;
+
+  // Dupliquer le contenu pour un défilement "infini"
+  const clone = track.cloneNode(true);
+  clone.setAttribute('aria-hidden', 'true');
+  track.parentElement.appendChild(clone);
+
+  let x = 0;
+  let speed = 0.6; // ajustez la vitesse (0.4 - 1.2)
+  let paused = false;
+
+  // Largeur d'une piste (track original)
+  const getTrackWidth = () => track.scrollWidth;
+
+  function tick(){
+    if(!paused){
+      x += speed; // gauche -> droite
+      const w = getTrackWidth();
+      // quand on dépasse la largeur du premier track, on revient
+      if(x >= w) x = 0;
+      // appliquer transform : on déplace vers la gauche pour donner effet "contenu va vers la droite"
+      // Ici, on inverse pour obtenir gauche->droite visuellement :
+      // On déplace le conteneur vers la droite en négatif ? => plus simple: déplacer vers la gauche mais inverser sens
+      // Nous voulons que les cartes semblent aller de gauche vers la droite :
+      // donc on translateX(+x) mais on doit cacher overflow; OK.
+      track.style.transform = `translateX(${x}px)`;
+      clone.style.transform = `translateX(${x}px)`;
+    }
+    requestAnimationFrame(tick);
+  }
+
+  // pause au survol
+  viewport.addEventListener('mouseenter', () => paused = true);
+  viewport.addEventListener('mouseleave', () => paused = false);
+
+  // Drag souris / tactile (pratique)
+  let isDown = false, startX = 0, startOffset = 0;
+
+  const down = (clientX) => { isDown = true; startX = clientX; startOffset = x; paused = true; };
+  const move = (clientX) => {
+    if(!isDown) return;
+    const dx = clientX - startX;
+    x = Math.max(0, startOffset + dx);
+  };
+  const up = () => { isDown = false; paused = false; };
+
+  viewport.addEventListener('mousedown', (e)=> down(e.clientX));
+  window.addEventListener('mousemove', (e)=> move(e.clientX));
+  window.addEventListener('mouseup', up);
+
+  viewport.addEventListener('touchstart', (e)=> down(e.touches[0].clientX), {passive:true});
+  viewport.addEventListener('touchmove', (e)=> move(e.touches[0].clientX), {passive:true});
+  viewport.addEventListener('touchend', up);
+
+  tick();
+})();
+</script>
+
+  
   <body>
     <header class="header">
       <nav class="navbar">
@@ -159,6 +223,7 @@ Site officiel du Laboratoire de Modélisation Mathématique, Statistique et Calc
 
   </footer>
 </html>
+
 
 
 
