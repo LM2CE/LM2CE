@@ -24,7 +24,7 @@
 
   --max:1200px;
   --pad: clamp(14px, 2vw, 22px);
-}
+} 
 
 /* ============== Base Reset ============== */
 *{ margin:0; padding:0; box-sizing:border-box; }
@@ -126,7 +126,7 @@ a:focus-visible{
 }
 
 .hero-section .hero{
-  max-width: 56%;
+  max-width: 50%;
   color:var(--text);
 }
 
@@ -145,7 +145,7 @@ a:focus-visible{
 }
 
 .hero-section .img img{
-  width: min(520px, 42vw);
+  /* width: min(520px, 42vw);*/
   height:auto;
   filter: drop-shadow(0 20px 50px rgba(0,0,0,.28));
 }
@@ -466,3 +466,4 @@ tr:hover td{ background: rgba(255,255,255,.06); }
 @media (prefers-reduced-motion: reduce){
   *{ animation:none !important; transition:none !important; }
 }
+
