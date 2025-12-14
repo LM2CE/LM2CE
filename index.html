@@ -31,24 +31,67 @@
   </header>
 
   <section class="hero-section" id="accueil">
-    <div class="hero">
-      <h2 class="montitre">Laboratoire de recherche en modélisation mathématique et de calculs économiques</h2>
-      <p>
-        Le LM2CE est un laboratoire pluridisciplinaire dédié à la modélisation, l'analyse statistique, la data science appliquée à l’économie et la gestion,
-        l’économétrie et la simulation numérique. Dirigé par Abdallah Abarda, il développe des approches quantitatives avancées pour comprendre les dynamiques
-        économiques, financières et sociales et accompagner la prise de décision publique et privée.
-      </p>
 
-      <div class="buttons">
-        <a href="#contact" class="join">Nous contacter</a>
-        <a href="#apropos" class="learn">Plus d'information</a>
-      </div>
-    <div class="img">
-      <img src="LM2CE-LOGO.png" alt="Logo LM2CE" />
+  <!-- Colonne gauche : TEXTE -->
+  <div class="hero">
+    <h2 class="montitre">
+      Laboratoire de recherche en modélisation mathématique et de calculs économiques
+    </h2>
+
+    <p>
+      Le LM2CE est un laboratoire pluridisciplinaire dédié à la modélisation,
+      l'analyse statistique, la data science appliquée à l’économie et la gestion,
+      l’économétrie et la simulation numérique.
+    </p>
+
+    <div class="buttons">
+      <a href="#contact" class="join">Nous contacter</a>
+      <a href="#apropos" class="learn">Plus d'information</a>
     </div>
 
-         
-  </section>
+    <!-- ACTUALITÉS (reste dans la colonne texte) -->
+    <div class="news-strip" aria-label="Actualités du laboratoire">
+      <div class="news-strip__head">
+        <h3>Actualités</h3>
+        <div class="news-strip__hint">Défilement automatique • Pause au survol</div>
+      </div>
+
+      <div class="news-strip__viewport" id="newsViewport">
+        <div class="news-strip__track" id="newsTrack">
+
+          <a class="news-card" href="#">
+            <div class="news-card__img">
+              <img src="LM2CE-LOGO.png" alt="Séminaire Data Science">
+            </div>
+            <div class="news-card__meta">
+              <div class="news-card__title">Séminaire Data Science – Décembre 2025</div>
+              <div class="news-card__date">14 Déc 2025</div>
+            </div>
+          </a>
+
+          <a class="news-card" href="#">
+            <div class="news-card__img">
+              <img src="LM2CE-LOGO.png" alt="Publication">
+            </div>
+            <div class="news-card__meta">
+              <div class="news-card__title">Publication acceptée (économétrie)</div>
+              <div class="news-card__date">10 Déc 2025</div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </div>
+    <!-- /ACTUALITÉS -->
+
+  </div>
+
+  <!-- Colonne droite : LOGO -->
+  <div class="img">
+    <img src="LM2CE-LOGO.png" alt="Logo du laboratoire LM2CE">
+  </div>
+
+</section>
 
   <!-- ACTUALITÉS (dans la première page) -->
       <div class="news-strip" aria-label="Actualités du laboratoire">
@@ -231,5 +274,6 @@
   </script>
 </body>
 </html>
+
 
 
