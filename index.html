@@ -257,6 +257,44 @@ Site officiel du Laboratoire de Modélisation Mathématique, Statistique et Calc
   </footer>
 </html>
 
+/* ===========================
+   FIX: animation sur news-strip__track
+   (si votre HTML utilise viewport/track)
+   =========================== */
+
+/* 1) on rend le track "marquee-ready" */
+.news-strip__viewport{
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.news-strip__track{
+  display:flex;
+  gap:14px;
+  width: max-content;   /* important pour que la piste prenne la largeur réelle */
+  flex-wrap: nowrap;
+  align-items: stretch;
+
+  /* Animation de défilement */
+  animation: news-scroll-ltr 28s linear infinite;
+  will-change: transform;
+}
+
+/* 2) pause au survol */
+.news-strip__viewport:hover .news-strip__track{
+  animation-play-state: paused;
+}
+
+/* 3) keyframes (défilement gauche -> droite)
+   IMPORTANT: ça marche uniquement si la liste est doublée (cards répétées 2 fois).
+*/
+@keyframes news-scroll-ltr{
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0%); }
+}
+
+
+
 
 
 
