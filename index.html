@@ -1,303 +1,232 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title> LM2CE</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LM2CE</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-  <script>
-(function(){
-  const viewport = document.getElementById('newsViewport');
-  const track = document.getElementById('newsTrack');
-  if(!viewport || !track) return;
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <input type="checkbox" id="menu-toggle" />
+      <label for="menu-toggle" id="hamburger-btn" aria-label="Ouvrir le menu">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+          <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </label>
 
-  // Dupliquer le contenu pour un défilement "infini"
-  const clone = track.cloneNode(true);
-  clone.setAttribute('aria-hidden', 'true');
-  track.parentElement.appendChild(clone);
+      <ul class="links">
+        <li><a href="#">Accueil</a></li>
+        <li><a href="#apropos">À propos du laboratoire</a></li>
+        <li><a href="#equipe">Équipe</a></li>
+        <li><a href="#projets">Projets de recherche</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#encadrement">Encadrement</a></li>
+        <li><a href="#partenariats">Partenariats & collaborations</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  let x = 0;
-  let speed = 0.6; // ajustez la vitesse (0.4 - 1.2)
-  let paused = false;
+  <section class="hero-section" id="accueil">
+    <div class="hero">
+      <h2 class="montitre">Laboratoire de recherche en modélisation mathématique et de calculs économiques</h2>
+      <p>
+        Le LM2CE est un laboratoire pluridisciplinaire dédié à la modélisation, l'analyse statistique, la data science appliquée à l’économie et la gestion,
+        l’économétrie et la simulation numérique. Dirigé par Abdallah Abarda, il développe des approches quantitatives avancées pour comprendre les dynamiques
+        économiques, financières et sociales et accompagner la prise de décision publique et privée.
+      </p>
 
-  // Largeur d'une piste (track original)
-  const getTrackWidth = () => track.scrollWidth;
-
-  function tick(){
-    if(!paused){
-      x += speed; // gauche -> droite
-      const w = getTrackWidth();
-      // quand on dépasse la largeur du premier track, on revient
-      if(x >= w) x = 0;
-      // appliquer transform : on déplace vers la gauche pour donner effet "contenu va vers la droite"
-      // Ici, on inverse pour obtenir gauche->droite visuellement :
-      // On déplace le conteneur vers la droite en négatif ? => plus simple: déplacer vers la gauche mais inverser sens
-      // Nous voulons que les cartes semblent aller de gauche vers la droite :
-      // donc on translateX(+x) mais on doit cacher overflow; OK.
-      track.style.transform = `translateX(${x}px)`;
-      clone.style.transform = `translateX(${x}px)`;
-    }
-    requestAnimationFrame(tick);
-  }
-
-  // pause au survol
-  viewport.addEventListener('mouseenter', () => paused = true);
-  viewport.addEventListener('mouseleave', () => paused = false);
-
-  // Drag souris / tactile (pratique)
-  let isDown = false, startX = 0, startOffset = 0;
-
-  const down = (clientX) => { isDown = true; startX = clientX; startOffset = x; paused = true; };
-  const move = (clientX) => {
-    if(!isDown) return;
-    const dx = clientX - startX;
-    x = Math.max(0, startOffset + dx);
-  };
-  const up = () => { isDown = false; paused = false; };
-
-  viewport.addEventListener('mousedown', (e)=> down(e.clientX));
-  window.addEventListener('mousemove', (e)=> move(e.clientX));
-  window.addEventListener('mouseup', up);
-
-  viewport.addEventListener('touchstart', (e)=> down(e.touches[0].clientX), {passive:true});
-  viewport.addEventListener('touchmove', (e)=> move(e.touches[0].clientX), {passive:true});
-  viewport.addEventListener('touchend', up);
-
-  tick();
-})();
-</script>
-
-  
-  <body>
-    <header class="header">
-      <nav class="navbar">
-        <!--<h2 class="logo"><a href="#">LM2CE</a></h2>-->
-        <input type="checkbox" id="menu-toggle" />
-        <label for="menu-toggle" id="hamburger-btn">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
-            <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </label>
-        
-        <ul class="links">
-          <li><a href="#">Accueil</a></li>
-          <li><a href="#apropos">À propos du laboratoire</a></li>
-          <li><a href="#">Équipe</a></li>
-          <li><a href="#">Projets de recherche</a></li>
-          <li><a href="#">Publications</a></li>
-          <li><a href="#">Encadrement</a></li>
-          <li><a href="#">Partenariats & collaborations</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-       <!-- <div class="buttons">
-          <a href="#" class="signin">Sign In</a>
-          <a href="#" class="signup">Sign Up</a>
-        </div>-->
-      </nav>
-    </header>
-    <section class="hero-section">
-      <div class="hero">
-        <h2 class="montitre">Laboratoire de recherche en modélisation mathématique et de calculs économiques</h2>
-        <p>
-          Le LM2CE est un laboratoire pluridisciplinaire dédié à la modélisation, l'analyse statistique, la data science appliquée à l’économie et la gestion, l’économétrie et la simulation numérique. Dirigé par Abdallah Abarda, il développe des approches quantitatives avancées pour comprendre les dynamiques économiques, financières et sociales et accompagner la prise de décision publique et privée.
-        </p>
-        <div class="buttons">
-          <a href="#" class="join">Nous contacter</a>
-          <a href="#" class="learn">Plus d'information</a>
-        </div>
+      <div class="buttons">
+        <a href="#contact" class="join">Nous contacter</a>
+        <a href="#apropos" class="learn">Plus d'information</a>
       </div>
-      <div class="img">
-        <img src="LM2CE-LOGO.png" alt="hero image" />
-      </div>
-      
 
-    </section>
+      <!-- ACTUALITÉS (dans la première page) -->
+      <div class="news-strip" aria-label="Actualités du laboratoire">
+        <div class="news-strip__head">
+          <h3>Actualités</h3>
+          <div class="news-strip__hint">Défilement automatique • Pause au survol</div>
+        </div>
 
-    <div class="news-strip" aria-label="Actualités du laboratoire">
-  <div class="news-strip__head">
-    <h3>Actualités</h3>
-    <div class="news-strip__hint">Défilement automatique • Pause au survol</div>
-  </div>
+        <div class="news-strip__viewport" id="newsViewport">
+          <div class="news-strip__track" id="newsTrack">
+            <!-- Item 1 -->
+            <a class="news-card" href="#actualite-1">
+              <div class="news-card__img">
+                <img src="LM2CE-LOGO.png" alt="Séminaire Data Science" />
+              </div>
+              <div class="news-card__meta">
+                <div class="news-card__title">Séminaire Data Science – Décembre 2025</div>
+                <div class="news-card__date">14 Déc 2025</div>
+              </div>
+            </a>
 
-  <div class="news-strip__viewport" id="newsViewport">
-    <div class="news-strip__track" id="newsTrack">
-      
-      <!-- Item 1 -->
-      <a class="news-card" href="#actualite-1">
-        <div class="news-card__img">
-          <img src="LM2CE-LOGO.png" alt="Actualité 1">
-        </div>
-        <div class="news-card__meta">
-          <div class="news-card__title">Séminaire Data Science – Décembre 2025</div>
-          <div class="news-card__date">14 Déc 2025</div>
-        </div>
-      </a>
+            <!-- Item 2 -->
+            <a class="news-card" href="#actualite-2">
+              <div class="news-card__img">
+                <img src="FEG-logo.png" alt="Publication acceptée" />
+              </div>
+              <div class="news-card__meta">
+                <div class="news-card__title">Publication acceptée (économétrie appliquée)</div>
+                <div class="news-card__date">10 Déc 2025</div>
+              </div>
+            </a>
 
-      <!-- Item 2 -->
-      <a class="news-card" href="#actualite-2">
-        <div class="news-card__img">
-          <img src="FEG-logo'.png" alt="Actualité 2">
-        </div>
-        <div class="news-card__meta">
-          <div class="news-card__title">Publication acceptée (économétrie appliquée)</div>
-          <div class="news-card__date">10 Déc 2025</div>
-        </div>
-      </a>
+            <!-- Item 3 -->
+            <a class="news-card" href="#actualite-3">
+              <div class="news-card__img">
+                <img src="LM2CE-LOGO.png" alt="Projet IA & Finance" />
+              </div>
+              <div class="news-card__meta">
+                <div class="news-card__title">Lancement d’un projet IA & Finance</div>
+                <div class="news-card__date">02 Déc 2025</div>
+              </div>
+            </a>
 
-      <!-- Item 3 -->
-      <a class="news-card" href="#actualite-3">
-        <div class="news-card__img">
-          <img src="LM2CE-LOGO.png" alt="Actualité 3">
-        </div>
-        <div class="news-card__meta">
-          <div class="news-card__title">Lancement d’un projet IA & Finance</div>
-          <div class="news-card__date">02 Déc 2025</div>
-        </div>
-      </a>
             <!-- Item 4 -->
-      <a class="news-card" href="#actualite-4">
-        <div class="news-card__img">
-          <img src="LM2CE-LOGO.png" alt="Actualité 4">
-        </div>
-        <div class="news-card__meta">
-          <div class="news-card__title">Lancement d’un projet IA & Finance</div>
-          <div class="news-card__date">02 Déc 2025</div>
-        </div>
-      </a>
+            <a class="news-card" href="#actualite-4">
+              <div class="news-card__img">
+                <img src="LM2CE-LOGO.png" alt="Appel à communications" />
+              </div>
+              <div class="news-card__meta">
+                <div class="news-card__title">Appel à communications – Workshop 2026</div>
+                <div class="news-card__date">28 Nov 2025</div>
+              </div>
+            </a>
+
             <!-- Item 5 -->
-      <a class="news-card" href="#actualite-5">
-        <div class="news-card__img">
-          <img src="LM2CE-LOGO.png" alt="Actualité 5">
-        </div>
-        <div class="news-card__meta">
-          <div class="news-card__title">Lancement d’un projet IA & Finance</div>
-          <div class="news-card__date">02 Déc 2025</div>
-        </div>
-      </a>
+            <a class="news-card" href="#actualite-5">
+              <div class="news-card__img">
+                <img src="LM2CE-LOGO.png" alt="Soutenance" />
+              </div>
+              <div class="news-card__meta">
+                <div class="news-card__title">Soutenance de thèse – Modélisation macroéconomique</div>
+                <div class="news-card__date">18 Nov 2025</div>
+              </div>
+            </a>
+
             <!-- Item 6 -->
-      <a class="news-card" href="#actualite-3">
-        <div class="news-card__img">
-          <img src="LM2CE-LOGO.png" alt="Actualité 6">
+            <a class="news-card" href="#actualite-6">
+              <div class="news-card__img">
+                <img src="LM2CE-LOGO.png" alt="Partenariat" />
+              </div>
+              <div class="news-card__meta">
+                <div class="news-card__title">Nouveau partenariat académique (international)</div>
+                <div class="news-card__date">05 Nov 2025</div>
+              </div>
+            </a>
+          </div>
         </div>
-        <div class="news-card__meta">
-          <div class="news-card__title">Lancement d’un projet IA & Finance</div>
-          <div class="news-card__date">02 Déc 2025</div>
-        </div>
-      </a>
-      <!-- Ajoutez autant d’items que vous voulez -->
-      
+      </div>
+      <!-- /ACTUALITÉS -->
+    </div>
+
+    <div class="img">
+      <img src="LM2CE-LOGO.png" alt="Logo LM2CE" />
+    </div>
+  </section>
+
+  <!-- À PROPOS -->
+  <div id="apropos">
+    <div class="d1">
+      <h2>À propos du laboratoire</h2>
+      <p>
+        Le Laboratoire de Modélisation Mathématique et Calculs Économiques (LM2CE) de la Faculté d'Économie et de Gestion de Settat est un espace de recherche
+        pluridisciplinaire consacré à l'étude, l'analyse et la modélisation quantitative des phénomènes économiques, financiers et sociaux.
+        Il mobilise des outils avancés issus de la statistique, de l'analyse de données, de la data science appliquée à l'économie et à la gestion, de l'économétrie,
+        des mathématiques appliquées et de la simulation numérique. Cette combinaison d'approches permet au LM2CE de développer des modèles robustes, de produire
+        des prévisions fiables et d'apporter un éclairage scientifique sur les problématiques économiques contemporaines.
+      </p>
+      <p>
+        Les travaux du laboratoire couvrent un large éventail d'applications, allant de la prévision macroéconomique à l'analyse des risques financiers,
+        en passant par le data mining, le machine learning appliqué, l'évaluation des politiques publiques et l'aide à la décision économique.
+      </p>
+      <p>
+        Le LM2CE accorde une importance particulière à l'encadrement des doctorants, au développement de projets collaboratifs nationaux et internationaux,
+        et à l'innovation méthodologique. Le laboratoire contribue activement à la diffusion scientifique à travers des publications dans des revues indexées,
+        l’organisation de séminaires, de conférences et la mise en place de partenariats académiques et institutionnels.
+      </p>
+    </div>
+    <div>
+      <img src="img.png" alt="Illustration LM2CE" />
     </div>
   </div>
-</div>
-    
-     <div id="apropos" >
-      
-<div class="d1">
-  <h2>À propos du laboratoire</h2>
-<p>Le Laboratoire de Modélisation Mathématique et Calculs Économiques (LM2CE) de la Faculté d'Économie et de Gestion de Settat est un espace de recherche pluridisciplinaire consacré à l'étude, l'analyse et la modélisation quantitative des phénomènes économiques, financiers et sociaux.
-qui mobilise des outils avancés issus de la statistique, de l'analyse de données, de la data science appliquée à l'économie et à la gestion, de l'économétrie, des mathématiques appliquées et de la simulation numérique.
-Cette combinaison d'approches permet au LM2CE de développer des modèles robustes, de produire des prévisions fiables et d'apporter un éclairage scientifique sur les problématiques économiques contemporaines.
 
-Les travaux du laboratoire couvrent un large éventail d'applications, allant de la prévision macroéconomique à l'analyse des risques financiers, en passant par le data mining, le machine learning appliqué, l'évaluation des politiques publiques et l'aide à la décision économique.
+  <!-- CONTACT -->
+  <div id="contact" class="content-section">
+    <h2>Informations de contact :</h2>
+    <table>
+      <tr>
+        <th>Type</th>
+        <th>Détail</th>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td>contact@example.com</td>
+      </tr>
+      <tr>
+        <td>Téléphone</td>
+        <td>+212 600 00 00 00</td>
+      </tr>
+      <tr>
+        <td>Adresse</td>
+        <td>LM2CE Faculté d'Économie et de Gestion – Settat, Km3, Route de Casablanca, 26000 Settat. Maroc</td>
+      </tr>
+    </table>
+  </div>
 
-Le LM2CE accorde une importance particulière à l'encadrement des doctorants, au développement de projets collaboratifs nationaux et internationaux, et à l'innovation méthodologique. Le laboratoire contribue activement à la diffusion scientifique à travers des publications dans des revues indexées, l’organisation de séminaires, de conférences et la mise en place de partenariats académiques et institutionnels.
+  <!-- Sections placeholders -->
+  <div id="equipe" class="content-section"><h2>Équipe</h2><p>Contenu à venir.</p></div>
+  <div id="projets" class="content-section"><h2>Projets de recherche</h2><p>Contenu à venir.</p></div>
+  <div id="publications" class="content-section"><h2>Publications</h2><p>Contenu à venir.</p></div>
+  <div id="encadrement" class="content-section"><h2>Encadrement</h2><p>Contenu à venir.</p></div>
+  <div id="partenariats" class="content-section"><h2>Partenariats & collaborations</h2><p>Contenu à venir.</p></div>
 
-Fort de son expertise en économie quantitative, en statistique appliquée et en data science, le LM2CE ambitionne de devenir un pôle de référence au niveau national et international dans la modélisation économique, l'économétrie moderne et l'analyse de données en économie et gestion.
-</p>
-</div>
- <div>
-  <img src="img.png">
-</div>
-</div>
-<div id="contact" class="content-section">
-<!--<h2>Contactez-nous</h2>-->
-<h2>Informations de contact :</h2>
-<table>
-<tr>
-<th>Type</th>
-<th>Détail</th>
-</tr>
-<tr>
-<td>Email</td>
-<td><a href="www.facebook.com" target="_blank" style="color: #1877F2;">
-  <i class="fab fa-facebook-f"></i>
-</a>
-  contact@example.com</td>
-</tr>
-<tr>
-<td>Téléphone</td>
-<td>+212 600 00 00 00</td>
-</tr>
-<tr>
-  <td>Adresse</td>
-  <td>LM2CE Faculté d'Économie et de Gestion – Settat, Km3, Route de Casablanca, 26000 Settat. Maroc</td>
-</tr>
-</table>
-
-
-  
-</div>
-<div id="axe">
-  <div></div>
-test
-  
-</div>
-  </body>
   <footer>
     <div class="pied">
-      
-      @ 2026 LM2CE – Faculté d'Économie et de Gestion de Settat<br>
-Site officiel du Laboratoire de Modélisation Mathématique, Statistique et Calcul Économique
-
+      @ 2026 LM2CE – Faculté d'Économie et de Gestion de Settat<br />
+      Site officiel du Laboratoire de Modélisation Mathématique, Statistique et Calcul Économique
     </div>
-   
-
   </footer>
+
+  <!-- JS: duplication + défilement automatique (fonctionne car placé en bas) -->
+  <script>
+    (function(){
+      const viewport = document.getElementById('newsViewport');
+      const track = document.getElementById('newsTrack');
+      if(!viewport || !track) return;
+
+      // Dupliquer la liste (1 seule liste dans HTML)
+      const clone = track.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      track.parentElement.appendChild(clone);
+
+      let x = 0;
+      const speed = 0.6; // vitesse: 0.4 - 1.2
+      let paused = false;
+
+      const getTrackWidth = () => track.scrollWidth;
+
+      function tick(){
+        if(!paused){
+          x -= speed; // défilement droite -> gauche (le plus naturel pour un ticker)
+          const w = getTrackWidth();
+          if(Math.abs(x) >= w) x = 0;
+
+          track.style.transform = `translateX(${x}px)`;
+          clone.style.transform = `translateX(${x}px)`;
+        }
+        requestAnimationFrame(tick);
+      }
+
+      viewport.addEventListener('mouseenter', () => paused = true);
+      viewport.addEventListener('mouseleave', () => paused = false);
+
+      tick();
+    })();
+  </script>
+</body>
 </html>
-
-/* ===========================
-   FIX: animation sur news-strip__track
-   (si votre HTML utilise viewport/track)
-   =========================== */
-
-/* 1) on rend le track "marquee-ready" */
-.news-strip__viewport{
-  overflow: hidden;
-  border-radius: 12px;
-}
-
-.news-strip__track{
-  display:flex;
-  gap:14px;
-  width: max-content;   /* important pour que la piste prenne la largeur réelle */
-  flex-wrap: nowrap;
-  align-items: stretch;
-
-  /* Animation de défilement */
-  animation: news-scroll-ltr 28s linear infinite;
-  will-change: transform;
-}
-
-/* 2) pause au survol */
-.news-strip__viewport:hover .news-strip__track{
-  animation-play-state: paused;
-}
-
-/* 3) keyframes (défilement gauche -> droite)
-   IMPORTANT: ça marche uniquement si la liste est doublée (cards répétées 2 fois).
-*/
-@keyframes news-scroll-ltr{
-  from { transform: translateX(-50%); }
-  to   { transform: translateX(0%); }
-}
-
-
-
-
-
-
-
-
-
