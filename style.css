@@ -557,3 +557,43 @@ tr:hover td{
   .news-card, .news-card__img img{ transition:none !important; }
 }
 
+.news-marquee{
+  overflow:hidden;
+  border-radius: 12px;
+  position: relative;
+}
+
+/* La piste */
+.news-marquee__track{
+  display:flex;
+  gap:14px;
+  width: max-content;
+  align-items: stretch;
+
+  /* Défilement: de gauche -> droite */
+  animation: news-scroll-ltr 28s linear infinite;
+  will-change: transform;
+}
+
+/* Pause au survol */
+.news-marquee:hover .news-marquee__track{
+  animation-play-state: paused;
+}
+
+/*
+  IMPORTANT:
+  - Comme on a doublé la liste, on anime sur 50% du contenu.
+  - On part “à gauche” (négatif) et on revient vers 0 => effet LTR.
+*/
+@keyframes news-scroll-ltr{
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0%); }
+}
+
+/* Accessibilité */
+@media (prefers-reduced-motion: reduce){
+  .news-marquee__track{ animation:none !important; }
+}
+
+
+
