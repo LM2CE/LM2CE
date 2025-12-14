@@ -1,0 +1,314 @@
+/* Importing Google font - Open Sans
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
+ */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(to top, #a10b3f 23%, #0a20b2 95%);
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 15px;
+}
+
+.navbar .logo a {
+  font-size: 1.8rem;
+  text-decoration: none;
+  color: #fff;
+}
+
+.navbar .links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 35px;
+}
+
+.navbar .links a {
+  font-weight: 500;
+  text-decoration: none;
+  color: #fff;
+  padding: 10px 0;
+  transition: 0.2s ease;
+}
+
+.navbar .links a:hover {
+  color: #47b2e4;
+  border: 1px solid white;
+  border-radius:0.5rem ;
+  padding: 10px 20px;
+  background-color:white; 
+}
+
+.navbar .buttons a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+  padding: 15px 0;
+  transition: 0.2s ease;
+}
+
+.navbar .buttons a:not(:last-child) {
+  margin-right: 30px;
+}
+
+.navbar .buttons .signin:hover {
+  color: #47b2e4;
+}
+
+.navbar .buttons .signup {
+  border: 1px solid #fff;
+  padding: 10px 20px;
+  border-radius: 0.375rem;
+  text-align: center;
+  transition: 0.2s ease;
+}
+
+.navbar .buttons .signup:hover {
+  background-color: #47b2e4;
+  color: #fff;
+  
+}
+
+.hero-section {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 95vh;
+  padding: 0 15px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-section .hero {
+  max-width: 50%;
+  color: #fff;
+}
+.montitre{
+  
+  animation-duration: 2s; /* Durée en secondes */
+  animation-iteration-count: infinite; /* Répéter à l'infini */
+  animation-direction: alternate; /* Aller-retour */
+}
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 1px white; 
+  animation:  marquee 7s  linear ;
+}
+@keyframes marquee {
+  0% { transform: translateX(-20%); }
+  100%   { transform: translateX(5%); }
+}
+.marquee:hover .hero h2{ animation-play-state: paused; }
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #c9c7c7;
+}
+
+.hero-section .img img {
+  width: 517px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  border: 3px solid white;
+  border-radius: 0.5rem;
+}
+
+table, th, td {
+  border: 3px solid white;
+  border-radius: 0.5rem;
+}
+
+th, td {
+  padding: 8px;
+  text-align: center;
+  color: white;
+}
+ td {
+  color: #6c6e6e;
+ }
+.hero-section .buttons {
+  margin-top: 40px;
+}
+
+.hero-section .buttons a {
+  text-decoration: none;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  transition: 0.2s ease;
+  display: inline-block;
+}
+
+.hero-section .buttons a:not(:last-child) {
+  margin-right: 15px;
+}
+
+.buttons .join {
+  background-color: #47b2e4;
+}
+
+.hero-section .buttons .learn {
+  border: 1px solid #fff;
+  border-radius: 0.375rem;
+}
+
+.hero-section .buttons a:hover {
+  background-color: #47b2e4;
+  transform: scale(1.2);
+}
+
+/* Hamburger menu styles */
+#menu-toggle {
+  display: none;
+}
+
+#hamburger-btn {
+  font-size: 1.8rem;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+  order: 1;
+}
+
+@media screen and (max-width: 1023px) {
+  .navbar .logo a {
+    font-size: 1.5rem;
+  }
+
+  .links {
+    position: fixed;
+    left: -100%;
+    top: 75px;
+    width: 100%;
+    height: 100vh;
+    padding-top: 50px;
+    background: #175d69;
+    flex-direction: column;
+    transition: 0.3s ease;
+  }
+
+  .navbar #menu-toggle:checked ~ .links {
+    left: 0;
+  }
+
+  .navbar #hamburger-btn {
+    display: block;
+  }
+
+  .header .buttons {
+    display: none;
+  }
+
+  .hero-section .hero {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .hero-section img {
+    display: none;
+  }
+}
+.pied{
+  background-color: #0b52bd;
+ 
+  color: white;
+  text-align: center;
+  padding: 25px;
+}
+content-section img{
+width: 100%; 
+height: auto;
+
+}
+
+.content-section h2{
+  margin: 10px 0 ;
+color: #fff;
+font-weight: 400;
+
+}
+.content-section {
+  display: none;
+justify-content:space-evenly;
+flex-direction:column;
+/*flex-wrap: wrap;/*Les éléments flexibles sont disposé sur plusieurs lignes. */
+  place-items: center; /* centre verticalement et horizontalement */
+  min-height: 80vh;
+  width: 80%;       /* largeur responsive */
+  max-width: 400px;
+  margin: 10px auto  ; 
+  color: #c9c7c7;;
+  padding: 20px 15px;
+}
+
+.content-section:target {
+  display:flex;
+  
+}
+#apropos:target {
+  display: flex;
+  
+}
+#apropos h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 1px white; 
+  animation:  marquee 10s  linear infinite ;
+}
+#apropos{
+display: none;
+  justify-content: space-between;
+  align-items: center;
+  height: 95vh;
+ 
+  max-width: 1200px;
+  
+   place-items: center; /* centre verticalement et horizontalement */
+  min-height: 80vh;
+  width: 80%;       /* largeur responsive */
+
+  margin: 10px auto  ; 
+  color: #c9c7c7;;
+  padding: 20px 15px;
+
+}
+.d1{
+   max-width: 50%;
+  color: #fff;
+}
+.d1 p{
+ 
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #c9c7c7;
+  text-align: justify;
+  
+}
+.d1 h2{
+  background-image: url('img.htm');
+  background-size: 100%;
+}

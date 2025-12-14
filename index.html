@@ -1,142 +1,157 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>LM2CE – Laboratoire de Modélisation mathématique et de Calculs Économiques</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description"
-        content="Laboratoire de Modélisation Mathématique et de Calculs Économiques (LM2CE), Faculté d’Économie et de Gestion de Settat.">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
- 
-  <!-- HEADER -->
-  <header>
-    <div class="header-inner">
-      <a href="index.html" class="logo-block">
-        <img src="LM2CE-LOGO.png" alt="Logo LM2CE" class="logo">
-        <div class="logo-text">
-          <span class="lab-name">LM2CE</span>
-          <span class="lab-sub">Laboratoire de Modélisation mathématique et de Calculs Économiques</span>
-        </div>
-      </a>
-      <nav>
-        <a href="#accueil">Accueil</a>
-        <a href="#axes">Axes</a>
-        <a href="#equipe">Équipe</a>
-        <a href="#projets">Projets</a>
-        <a href="#publications">Publications</a>
-        <a href="#contact">Contact</a>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> LM2CE</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navbar">
+        <!--<h2 class="logo"><a href="#">LM2CE</a></h2>-->
+        <input type="checkbox" id="menu-toggle" />
+        <label for="menu-toggle" id="hamburger-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+            <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </label>
+        
+        <ul class="links">
+          <li><a href="#">Accueil</a></li>
+          <li><a href="#apropos">À propos du laboratoire</a></li>
+          <li><a href="#">Équipe</a></li>
+          <li><a href="#">Projets de recherche</a></li>
+          <li><a href="#">Publications</a></li>
+          <li><a href="#">Encadrement</a></li>
+          <li><a href="#">Partenariats & collaborations</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+       <!-- <div class="buttons">
+          <a href="#" class="signin">Sign In</a>
+          <a href="#" class="signup">Sign Up</a>
+        </div>-->
       </nav>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section id="accueil" class="hero">
-    <div class="hero-content">
-      <h1 class="hero-title">
-        Laboratoire LM2CE
-      </h1>
-      <p class="hero-subtitle">
-        Laboratoire de Modélisation mathématique et de Calculs Économiques de la Faculté d’Économie et de Gestion de Settat.
-      </p>
-
-      <div class="hero-tags">
-        <span class="hero-tag">Statistique & économétrie</span>
-        <span class="hero-tag">Analyse de données</span>
-        <span class="hero-tag">Data science en économie & gestion</span>
-        <span class="hero-tag">Modélisation & aide à la décision</span>
-      </div>
-
-      <a href="#apropos" class="btn-primary">Découvrir le laboratoire</a>
-    </div>
-  </section>
-
-  <main class="main-container">
-
-    <!-- À PROPOS -->
-    <section id="apropos" class="section-card">
-      <h2>À propos du LM2CE</h2>
-      <p>
-        Le Laboratoire de Modélisation Mathématique et de Calculs Économiques (LM2CE) de la Faculté d’Économie
-        et de Gestion de Settat est un espace de recherche pluridisciplinaire dédié à l’étude, l’analyse statistique
-        et la modélisation des phénomènes économiques, financiers et sociaux. Sous la direction d’Abdallah Abarda,
-        le laboratoire mobilise des outils de mathématiques appliquées, de statistique, d’économétrie, de data science
-        et de simulation numérique afin d’éclairer les décisions publiques et privées.
-      </p>
-    </section>
-
-    <!-- AXES -->
-    <section id="axes" class="section-card">
-      <h2>Axes de recherche</h2>
-      <div class="grid-3">
-        <div class="axis-card">
-          <h3>Statistique & économétrie</h3>
-          <p>
-            Modélisation statistique, inférence, économétrie appliquée aux marchés, aux politiques publiques,
-            à la finance et à la gestion des risques.
-          </p>
-        </div>
-        <div class="axis-card">
-          <h3>Analyse de données & data science</h3>
-          <p>
-            Méthodes de data mining, apprentissage automatique et intelligence artificielle pour
-            l’analyse de données économiques, financières et sociales.
-          </p>
-        </div>
-        <div class="axis-card">
-          <h3>Modélisation & calcul économique</h3>
-          <p>
-            Modèles macroéconomiques et microéconomiques, optimisation, aide à la décision et simulation
-            numérique pour l’évaluation de scénarios et de politiques.
-          </p>
+    </header>
+    <section class="hero-section">
+      <div class="hero">
+        <h2 class="montitre">Laboratoire de recherche en modélisation mathématique et de calculs économiques</h2>
+        <p>
+          Le LMMCE est un laboratoire pluridisciplinaire dédié à la modélisation, l'analyse statistique, la data science appliquée à l’économie et la gestion, l’économétrie et la simulation numérique. Dirigé par Abdallah Abarda, il développe des approches quantitatives avancées pour comprendre les dynamiques économiques, financières et sociales et accompagner la prise de décision publique et privée.
+        </p>
+        <div class="buttons">
+          <a href="#" class="join">Nous contacter</a>
+          <a href="#" class="learn">Plus d'information</a>
         </div>
       </div>
+      <div class="img">
+        <img src="LM2CE-LOGO.png" alt="hero image" />
+      </div>
     </section>
+     <div id="apropos" >
+      
+<div class="d1">
+  <h2>À propos du laboratoire</h2>
+<p>Le Laboratoire de Modélisation Mathématique, Statistique et Calculs Économiques (LM2CE) de la Faculté d'Économie et de Gestion de Settat est un espace de recherche pluridisciplinaire consacré à l'étude, l'analyse et la modélisation quantitative des phénomènes économiques, financiers et sociaux.
 
-    <!-- ÉQUIPE (placeholder simple) -->
-    <section id="equipe" class="section-card">
-      <h2>Équipe</h2>
-      <p class="muted">
-        Cette rubrique présentera prochainement les enseignants-chercheurs, doctorants et partenaires du laboratoire LM2CE.
-      </p>
-    </section>
+Sous la direction d'Abdallah Abarda, le laboratoire mobilise des outils avancés issus de la statistique, de l'analyse de données, de la data science appliquée à l'économie et à la gestion, de l'économétrie, des mathématiques appliquées et de la simulation numérique.
+Cette combinaison d'approches permet au LM2CE de développer des modèles robustes, de produire des prévisions fiables et d'apporter un éclairage scientifique sur les problématiques économiques contemporaines.
 
-    <!-- PROJETS -->
-    <section id="projets" class="section-card">
-      <h2>Projets</h2>
-      <p class="muted">
-        Projets de recherche en cours et collaborations nationales et internationales en économie quantitative,
-        data science et analyse de données pour la décision.
-      </p>
-    </section>
+Les travaux du laboratoire couvrent un large éventail d'applications, allant de la prévision macroéconomique à l'analyse des risques financiers, en passant par le data mining, le machine learning appliqué, l'évaluation des politiques publiques et l'aide à la décision économique.
 
-    <!-- PUBLICATIONS -->
-    <section id="publications" class="section-card">
-      <h2>Publications</h2>
-      <p class="muted">
-        Liste des publications scientifiques du laboratoire (articles, ouvrages, chapitres, communications…)
-        en cours d’intégration.
-      </p>
-    </section>
+Le LM2CE accorde une importance particulière à l'encadrement des doctorants, au développement de projets collaboratifs nationaux et internationaux, et à l'innovation méthodologique. Le laboratoire contribue activement à la diffusion scientifique à travers des publications dans des revues indexées, l’organisation de séminaires, de conférences et la mise en place de partenariats académiques et institutionnels.
 
-    <!-- CONTACT -->
-    <section id="contact" class="section-card">
-      <h2>Contact</h2>
-      <p>
-        Faculté d’Économie et de Gestion de Settat<br>
-        Laboratoire LM2CE
-      </p>
-      <p class="muted">
-        Une adresse e-mail et un formulaire de contact pourront être ajoutés ici.
-      </p>
-    </section>
+Fort de son expertise en économie quantitative, en statistique appliquée et en data science, le LM2CE ambitionne de devenir un pôle de référence au niveau national et international dans la modélisation économique, l'économétrie moderne et l'analyse de données en économie et gestion.
+</p>
+</div>
+ <div>
+  <img src="img.png">
+</div>
+</div>
+<div id="contact" class="content-section">
+<!--<h2>Contactez-nous</h2>-->
+<h2>Informations de contact :</h2>
+<table>
+<tr>
+<th>Type</th>
+<th>Détail</th>
+</tr>
+<tr>
+<td>Email</td>
+<td><a href="www.facebook.com" target="_blank" style="color: #1877F2;">
+  <i class="fab fa-facebook-f"></i>
+</a>
+  contact@example.com</td>
+</tr>
+<tr>
+<td>Téléphone</td>
+<td>+212 600 00 00 00</td>
+</tr>
+<tr>
+  <td>Adresse</td>
+  <td>LM2CE Faculté d'Économie et de Gestion – Settat, Km3, Route de Casablanca, 26000 Settat. Maroc</td>
+</tr>
+</table>
+</div>
+<div id="axe">
+  <div></div>
+1. Statistique appliquée et économétrie
 
-  </main>
+Modélisation statistique des phénomènes économiques
 
+Économétrie linéaire, non linéaire et économétrie des séries temporelles
+
+Modèles ARIMA, VAR, GARCH, modèles structurels
+
+Méthodes bootstrap, tests statistiques avancés
+
+Mesure des risques, volatilité, prévision macroéconomique
+
+2. Analyse de données et Data Science en économie et gestion
+
+Exploration et traitement de grandes bases de données économiques et financières
+
+Data mining et analyse multivariée (ACP, CAH, AFM…)
+
+Machine learning appliqué (régression avancée, classification, clustering)
+
+Deep learning pour la prévision et la détection d’anomalies
+
+Applications sectorielles : finance, marketing, gestion des risques, économie territoriale
+
+3. Modélisation macroéconomique et microéconomique
+
+Modèles d’équilibre général, modèles DSGE
+
+Modèles microéconométriques et modèles de choix discrets
+
+Analyse des comportements économiques et des dynamiques de marché
+
+4. Optimisation, aide à la décision et recherche opérationnelle
+
+Méthodes d’optimisation déterministes et stochastiques
+
+Modèles de décision pour la planification et la gestion des ressources
+
+Applications aux politiques publiques, énergie, transport, développement territorial
+
+5. Intelligence artificielle appliquée à l'économie
+
+Réseaux de neurones, modèles génératifs, apprentissage supervisé et non supervisé
+
+KAN (Kolmogorov–Arnold Networks), deep learning économétrique
+
+IA explicable (XAI) pour soutenir la décision économique et financière
+</div>
+  </body>
   <footer>
-    © 2025 <span class="footer-lab">Laboratoire LM2CE</span> – Faculté d’Économie et de Gestion de Settat
-  </footer>
+    <div class="pied">
+      
+      @ 2026 LM2CE – Faculté d'Économie et de Gestion de Settat<br>
+Site officiel du Laboratoire de Modélisation Mathématique, Statistique et Calcul Économique
 
-</body>
+    </div>
+   
+
+  </footer>
 </html>
