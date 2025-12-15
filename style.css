@@ -482,3 +482,106 @@ tr:hover td{ background: rgba(255,255,255,.06); }
 @media (prefers-reduced-motion: reduce){
   *{ animation:none !important; transition:none !important; }
 }
+
+/* =========================
+   PRO ANIMATIONS (LM2CE)
+   ========================= */
+
+/* Rythme global */
+:root{
+  --ease-out: cubic-bezier(.2,.8,.2,1);
+  --dur-1: 420ms;
+  --dur-2: 700ms;
+}
+
+/* HERO: apparition douce */
+.hero-section .hero,
+.hero-section .img{
+  opacity: 0;
+  transform: translateY(14px);
+  filter: blur(6px);
+  animation: enter-soft var(--dur-2) var(--ease-out) forwards;
+}
+
+.hero-section .hero{ animation-delay: 80ms; }
+.hero-section .img{ animation-delay: 180ms; }
+
+@keyframes enter-soft{
+  to{
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* Navbar: légère “glide” */
+.header{
+  animation: nav-drop 520ms var(--ease-out) forwards;
+}
+@keyframes nav-drop{
+  from{ transform: translateY(-10px); opacity: 0; }
+  to{ transform: translateY(0); opacity: 1; }
+}
+
+/* Boutons: micro-interaction pro (pas de scale 1.2) */
+.hero-section .buttons a{
+  transform: translateY(0);
+}
+.hero-section .buttons a:hover{
+  transform: translateY(-2px);
+}
+.hero-section .buttons a:active{
+  transform: translateY(0);
+}
+
+/* Cards actualités: hover pro */
+.news-card{
+  transform: translateY(0);
+}
+.news-card:hover{
+  transform: translateY(-4px);
+}
+
+/* ===== Scroll Reveal (sections) =====
+   On anime uniquement quand visible via JS (IntersectionObserver)
+*/
+.reveal{
+  opacity: 0;
+  transform: translateY(18px);
+  filter: blur(8px);
+  transition: opacity var(--dur-2) var(--ease-out),
+              transform var(--dur-2) var(--ease-out),
+              filter var(--dur-2) var(--ease-out);
+  will-change: opacity, transform, filter;
+}
+.reveal.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* Variante: reveal plus discret */
+.reveal--subtle{
+  transform: translateY(12px);
+  filter: blur(5px);
+}
+
+/* Accessibilité */
+@media (prefers-reduced-motion: reduce){
+  .hero-section .hero,
+  .hero-section .img,
+  .header{
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+  .reveal{
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+
